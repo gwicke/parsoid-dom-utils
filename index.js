@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-	sections: require('./lib/sections')
+    sections: require('./lib/sections')
 };
