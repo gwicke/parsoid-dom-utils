@@ -1,0 +1,30 @@
+{
+  "name": "parsoid-dom-utils",
+  "version": "0.1.0",
+  "description": "A collection of utilities for working with HTML DOM emitted by Parsoid",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --ui exports"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gwicke/parsoid-dom-utils.git"
+  },
+  "keywords": [
+    "parsoid",
+    "html",
+    "mediawiki",
+    "wikipedia"
+  ],
+  "author": "Gabriel Wicke <gwicke@wikimedia.org>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/gwicke/parsoid-dom-utils/issues"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4"
+  },
+  "dependencies": {
+    "domino": "^1.0.20"
+  }
+}
