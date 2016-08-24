@@ -41,7 +41,7 @@ module.exports = {
         },
         'Replace first section': () => {
             assert.deepEqual(sectionDiff(origIds, [
-                        {value:'foo'},
+                        {html:'foo'},
                         {id:'b'},
                         {id:'c'},
                         {id:'d'},
@@ -52,8 +52,8 @@ module.exports = {
         'Edit + section replacement': () => {
             assert.deepEqual(sectionDiff(origIds, [
                         {id:'a'},
-                        {id:'b', modified: true, value: 'bar'},
-                        {id:'d', modified: true, value: 'deee'},
+                        {id:'b', html: 'bar'},
+                        {id:'d', html: 'deee'},
                         {id:'e'},
                         {id:'f'}
             ]), {b:'bar',c:'',d:'deee'});
@@ -69,7 +69,7 @@ module.exports = {
         },
         'Prepend & delete last section': () => {
             assert.deepEqual(sectionDiff(origIds, [
-                        {value: 'foo'},
+                        {html: 'foo'},
                         {id:'a'},
                         {id:'b'},
                         {id:'c'},
@@ -80,8 +80,8 @@ module.exports = {
         'Reorder sections 1': () => {
             assert.deepEqual(sectionDiff(origIds, [
                         {id:'a'},
-                        {id: 'b', value:'b'},
-                        {value: 'foo'},
+                        {id: 'b', html:'b'},
+                        {html: 'foo'},
                         {id:'e'}
             ]), {'b':'bfoo', c:'', d:'', f:''});
         }
