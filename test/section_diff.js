@@ -25,7 +25,7 @@ module.exports = {
                         {id:'d'},
                         {id:'e'},
                         {id:'f'}
-            ]), {a:''});
+            ]), {a:[]});
         },
         'Single deleted section, middle': () => {
             assert.deepEqual(sectionDiff(origIds, [
@@ -34,10 +34,10 @@ module.exports = {
                         {id:'d'},
                         {id:'e'},
                         {id:'f'}
-            ]), {'b':''});
+            ]), {'b':[]});
         },
         'Delete everything': () => {
-            assert.deepEqual(sectionDiff(origIds, []), {a:'',b:'',c:'',d:'',e:'',f:''});
+            assert.deepEqual(sectionDiff(origIds, []), {a:[],b:[],c:[],d:[],e:[],f:[]});
         },
         'Replace first section': () => {
             assert.deepEqual(sectionDiff(origIds, [
@@ -47,7 +47,7 @@ module.exports = {
                         {id:'d'},
                         {id:'e'},
                         {id:'f'}
-            ]), {mw0:'foo',a:''});
+            ]), {mw0:[{html: 'foo'}],a:[]});
         },
         'Edit + section replacement': () => {
             assert.deepEqual(sectionDiff(origIds, [
@@ -56,7 +56,7 @@ module.exports = {
                         {id:'d', html: 'deee'},
                         {id:'e'},
                         {id:'f'}
-            ]), {b:'bar',c:'',d:'deee'});
+            ]), {b:[{id:'b',html:'bar'}],c:[],d:[{id:'d',html:'deee'}]});
         },
         'Delete last section': () => {
             assert.deepEqual(sectionDiff(origIds, [
@@ -65,7 +65,7 @@ module.exports = {
                         {id:'c'},
                         {id:'d'},
                         {id:'e'}
-            ]), {f:''});
+            ]), {f:[]});
         },
         'Prepend & delete last section': () => {
             assert.deepEqual(sectionDiff(origIds, [
@@ -75,15 +75,23 @@ module.exports = {
                         {id:'c'},
                         {id:'d'},
                         {id:'e'}
-            ]), {'mw0':'foo',f: ''});
+            ]), {'mw0':[{html:'foo'}],f: []});
         },
         'Reorder sections 1': () => {
             assert.deepEqual(sectionDiff(origIds, [
                         {id:'a'},
-                        {id: 'b', html:'b'},
+                        {id: 'b'},
                         {html: 'foo'},
                         {id:'e'}
-            ]), {'b':'bfoo', c:'', d:'', f:''});
+            ]), {'b':[{id:'b'},{html:'foo'}], c:[], d:[], f:[]});
+        },
+        'Reorder sections 2': () => {
+            assert.deepEqual(sectionDiff(origIds, [
+                        {id: 'b'},
+                        {id: 'a'},
+                        {id:'e'},
+                        {html: 'foo'}
+            ]), {'a':[],'b':[{id:'b'},{id: 'a'}], c:[], d:[], e:[{id: 'e'},{html: 'foo'}], f: []});
         }
     }
 };
