@@ -1,6 +1,6 @@
 {
   "name": "parsoid-dom-utils",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A collection of utilities for working with HTML DOM emitted by Parsoid",
   "main": "index.js",
   "scripts": {

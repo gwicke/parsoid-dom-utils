@@ -63,6 +63,21 @@ wrap a single child of body:
       </div>
     </section></body></html>
 
+no lead section: 
+  symbol: wrap
+
+  input: |
+    <html><body><h1>1</h1>after1
+        <h2>2</h2>after2
+        <h1>3</h1>after3
+    </body></html>
+
+  output: | 
+    <html><head></head><body><section><h1>1</h1>after1
+        <section><h2>2</h2>after2
+        </section></section><section><h1>3</h1>after3
+    </section></body></html>
+
 multiple nested headings:
   input: |
     <html><body>
